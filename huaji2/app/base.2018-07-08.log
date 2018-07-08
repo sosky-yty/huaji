@@ -1,0 +1,17 @@
+2018-07-08 19:11:15.830 [restartedMain] INFO  com.skypointer.huaji.HuajiApplication - Starting HuajiApplication on sosky-XPS-13-9360 with PID 10219 (/home/sosky/Documents/jinying-project/huaji2/target/classes started by sosky in /home/sosky/Documents/jinying-project/huaji2)
+2018-07-08 19:11:15.836 [restartedMain] DEBUG com.skypointer.huaji.HuajiApplication - Running with Spring Boot v1.4.2.RELEASE, Spring v4.3.4.RELEASE
+2018-07-08 19:11:15.836 [restartedMain] INFO  com.skypointer.huaji.HuajiApplication - No active profile set, falling back to default profiles: default
+2018-07-08 19:11:16.071 [background-preinit] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider found via system property
+2018-07-08 19:11:17.506 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2018-07-08 19:11:17.507 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.6
+2018-07-08 19:11:17.552 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-07-08 19:11:18.066 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2018-07-08 19:11:18.466 [restartedMain] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.skypointer.huaji.bean.BorrowBook
+2018-07-08 19:11:18.467 [restartedMain] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.skypointer.huaji.bean.BorrowBook
+2018-07-08 19:11:19.649 [restartedMain] WARN  org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration - Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+2018-07-08 19:11:19.800 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8855"]
+2018-07-08 19:11:19.807 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-8855]
+2018-07-08 19:11:19.812 [restartedMain] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-07-08 19:11:19.829 [restartedMain] INFO  com.skypointer.huaji.HuajiApplication - Started HuajiApplication in 4.518 seconds (JVM running for 5.616)
+2018-07-08 19:11:43.360 [http-nio-8855-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-07-08 19:22:41.136 [Thread-17] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
