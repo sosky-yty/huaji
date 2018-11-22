@@ -20,15 +20,15 @@ public class IndexController extends BaseContrller {
 
     @RequestMapping(value={"/index"})
     public String index(){
-        List<User> users = userService.findAll();
-        logger.debug(users.toString());
+        //List<User> users = userService.findAll();
+        //logger.debug(users.toString());
         return "index";
     }
 
     @RequestMapping(value={"/"})
     public String login(){
-        List<User> users = userService.findAll();
-        logger.debug(users.toString());
+        //List<User> users = userService.findAll();
+        //logger.debug(users.toString());
         return "login";
     }
 }

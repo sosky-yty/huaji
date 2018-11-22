@@ -1,0 +1,37 @@
+
+.main-btn {
+    border: 1px solid #5c81e3;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #fff;
+    background-color: #678ee7;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    width: 100px;
+    height: 30px;
+    line-height: 28px;
+    vertical-align: middle;
+    background-image: -webkit-linear-gradient(top, #678ee7, #5078df);
+    background-image: linear-gradient(180deg, #678ee7, #5078df);
+
+}
+
+
+  .disable-btn {
+      border: 1px solid #afafaf;
+      border-radius: 4px;
+      font-size: 12px;
+      color: #fff;
+      background-color: #a9a9a9;
+      display: inline-block;
+      cursor: pointer;
+      text-align: center;
+      width: 100px;
+      height: 30px;
+      line-height: 28px;
+      vertical-align: middle;
+      cursor: not-allowed;
+      background-image: -webkit-linear-gradient(top, #b8b8b8, #a9a9a9);
+      background-image: linear-gradient(180deg, #b8b8b8, #a9a9a9);
+  }
