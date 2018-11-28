@@ -29,12 +29,12 @@
 </head>
 
 <body>
-    <div class="container" id="vue">
+    <div class="container-wapper" id="vue">
         <div class="title">
-            <h2>滑稽图书馆</h2>
+            <h2 style="color: #678ee7; padding-top:50px;">滑稽图书馆</h2>
         </div>
         <div class="login-area">
-            <h4>使用滑稽账号登录图书馆</h4>
+            <h4 style="color: #5c81e3; padding-bottom: 20px;">使用滑稽账号登录图书馆</h4>
             <ul class="common-form">
                 <li class="username">
                     <div class="input">
@@ -64,7 +64,7 @@
 </body>
 
 <script>
-    var app = new Vue({
+         new Vue({
         el: '#vue',
         data: {
             autoLogin:false ,

@@ -405,3 +405,4 @@
 2018-11-22 11:46:11.390 [restartedMain] INFO  com.skypointer.huaji.HuajiApplication - Started HuajiApplication in 6.677 seconds (JVM running for 8.092)
 2018-11-22 11:46:14.442 [http-nio-8855-exec-1] INFO  org.apache.tomcat.util.http.parser.Cookie - A cookie header was received [1541061299; Hm_lvt_90194188523e0a2d04ad3ad170c83f30=1541041745,1541130442,1541512053,1541730580] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
 2018-11-22 11:46:14.450 [http-nio-8855-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-11-22 11:48:03.946 [Thread-22] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
