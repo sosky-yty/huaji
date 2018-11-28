@@ -21,20 +21,23 @@
     <script src="${ContextPath!}/js/vue.js"></script>
     <script src="${ContextPath!}/js/untils/storage.js"></script>
     <script src="${ContextPath!}/js/untils/router.js"></script>
+    <script src="${ContextPath!}/gt/gt.js"></script>
     <#--异步通信库-->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
     <!-- 引入组件库 -->
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <#--导入网络通信库-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
     <div class="container-wapper" id="vue">
         <div class="title">
-            <h2 style="color: #678ee7; padding-top:50px;">滑稽图书馆</h2>
+            <h2 style="color: #005cbf; padding-top:50px;">滑稽图书馆</h2>
         </div>
         <div class="login-area">
-            <h4 style="color: #5c81e3; padding-bottom: 20px;">使用滑稽账号登录图书馆</h4>
+            <h4 style="color: #5c81e3; padding-bottom: 20px; position: center;: center">使用滑稽账号登录图书馆</h4>
             <ul class="common-form">
                 <li class="username">
                     <div class="input">
@@ -48,7 +51,7 @@
                 </li>
                 <li>
                     <div id="captcha">
-                        <p id="wait">正在加载验证码...</p>
+                        <p id="wait" style>正在加载验证码...</p>
                     </div>
                 </li>
                 <li style="text-align: right" class="pr"><el-checkbox class="auto-login" v-model="autoLogin">记住密码</el-checkbox>
@@ -56,21 +59,24 @@
                     <a style="padding: 1px 0 0 10px;" href="forget">忘记密码?</a>
                 </li>
             </ul>
-            <div style="margin-top: 25px;">
-                <button @click="login" :class="logintxt === '登录'? 'main-btn':'disable-btn'" >{{logintxt}}</button>
+            <div style="margin-top: 25px; position: center;">
+                <button  @click="login" :class="logintxt === '登录'? 'main-btn':'disable-btn'" >{{logintxt}}</button>
             </div>
         </div>
     </div>
 </body>
-
+<script src="${ContextPath!}/js/public.js"></script>
+<script src="${ContextPath!}/js/api.js"></script>
 <script>
+    var captcha;
          new Vue({
         el: '#vue',
         data: {
             autoLogin:false ,
             logintxt:'登录',
             userName:'',
-            userPwd:''
+            userPwd:'',
+            statusKey:''
         },
         methods:{
             open (t, m) {
@@ -101,19 +107,72 @@
                   removeStore('ruserpwd');
               }
             },
+            getRemember(){
+                var judge = getStore('remember');
+                if (judge === 'true'){
+                    this.autoLogin = true;
+                    this.userName = getStore('rusername');
+                    this.userPwd = getStore('ruserpwd');
+                }
+            },
             login(){
                 this.logintxt = '登录中...';
                 this.rememberPass();
                 if (!this.userName || !this.userPwd) {
                     this.message("账号密码不能为空！");
+                    this.logintxt = '登录';
                     return false;
-                }else{
-                    this.messageSuccess();
-                    push("/");
                 }
+                var result =  captcha.getValidate();
+                if (!resule) {
+                    this.message("请先完成登录！");
+                    this.logintxt = '登录';
+                    return false;
+                }
+                var params = {
+                    userNama:this.userNama,
+                    userPwd:this.userPwd,
+                    challenge: result.geetest_challenge,
+                    validate: result.geetest_validate,
+                    seccode: result.geetest_seccode,
+                    statusKey: this.statusKey
+                }
+                userLogin(params).then(res=>{
+                    if (res.result.state === 1){
+                        this.open("暂且算你登录成功了，后台接口还没写")
+                    }else{
+                        this.logintxt = '登录';
+                        this.message(res.result.message);
+                        captcha.reset();
+                        return false;
+                    }
+                })
+            },
+            init_geetest(){
+                geetest().then(res => {
+                    this.statusKey = res.statusKey
+                    window.initGeetest({
+                        gt: res.gt,
+                        challenge: res.challenge,
+                        new_captcha: res.new_captcha,
+                        offline: !res.success,
+                        product: 'popup',
+                        width: '100%'
+                    }, function (captchaObj) {
+                        captcha = captchaObj
+                        captchaObj.appendTo('#captcha')
+                        captchaObj.onReady(function () {
+                            document.getElementById('wait').style.display = 'none'
+                        })
+                    })
+                })
             }
+        },
+        mounted(){
+         this.getRemember();
+         this.init_geetest();
+         this.open("登录提示","测试账号： admin | admin")
         }
-
     });
 
 </script>
