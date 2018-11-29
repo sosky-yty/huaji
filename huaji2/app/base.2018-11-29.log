@@ -1,0 +1,17 @@
+2018-11-29 09:00:07.732 [restartedMain] INFO  com.skypointer.huaji.HuajiApplication - Starting HuajiApplication on sosky-XPS-13-9360 with PID 5301 (/home/sosky/Documents/jinying-project/huaji2/target/classes started by sosky in /home/sosky/Documents/jinying-project/huaji2)
+2018-11-29 09:00:07.736 [restartedMain] DEBUG com.skypointer.huaji.HuajiApplication - Running with Spring Boot v1.4.2.RELEASE, Spring v4.3.4.RELEASE
+2018-11-29 09:00:07.737 [restartedMain] INFO  com.skypointer.huaji.HuajiApplication - No active profile set, falling back to default profiles: default
+2018-11-29 09:00:08.164 [background-preinit] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider found via system property
+2018-11-29 09:00:10.012 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2018-11-29 09:00:10.014 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.6
+2018-11-29 09:00:10.095 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-11-29 09:00:10.732 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2018-11-29 09:00:11.232 [restartedMain] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.skypointer.huaji.bean.BorrowBook
+2018-11-29 09:00:11.232 [restartedMain] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.skypointer.huaji.bean.BorrowBook
+2018-11-29 09:00:12.834 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8855"]
+2018-11-29 09:00:12.847 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-8855]
+2018-11-29 09:00:12.854 [restartedMain] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-11-29 09:00:12.872 [restartedMain] INFO  com.skypointer.huaji.HuajiApplication - Started HuajiApplication in 5.752 seconds (JVM running for 7.28)
+2018-11-29 09:01:01.994 [http-nio-8855-exec-1] INFO  org.apache.tomcat.util.http.parser.Cookie - A cookie header was received [1541061299; Hm_lvt_90194188523e0a2d04ad3ad170c83f30=1541041745,1541130442,1541512053,1541730580] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+2018-11-29 09:01:01.998 [http-nio-8855-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-11-29 09:06:06.861 [Thread-20] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed

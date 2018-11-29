@@ -6,7 +6,7 @@ const userLogin = (params) =>{
 
 // 退出登录
 const loginOut = (params) =>{
-    return Post('/loginOut',params);
+    return Get('/loginOut',params);
 };
 
 // 用户信息
