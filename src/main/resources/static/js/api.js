@@ -21,5 +21,5 @@ const register = (params) =>{
 
 // 验证码
 const geetest = (params) =>{
-    return Get('geetestInit?t=' + (new Date()).getTime(),params);
+    return Get('/geetestInit?t=' + (new Date()).getTime(), params);
 };

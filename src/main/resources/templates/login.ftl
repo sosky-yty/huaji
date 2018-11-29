@@ -150,7 +150,7 @@
             },
             init_geetest(){
                 geetest().then(res => {
-                    this.statusKey = res.statusKey
+                    this.statusKey = res.statusKey;
                     window.initGeetest({
                         gt: res.gt,
                         challenge: res.challenge,
@@ -159,8 +159,8 @@
                         product: 'popup',
                         width: '100%'
                     }, function (captchaObj) {
-                        captcha = captchaObj
-                        captchaObj.appendTo('#captcha')
+                        captcha = captchaObj;
+                        captchaObj.appendTo('#captcha');
                         captchaObj.onReady(function () {
                             document.getElementById('wait').style.display = 'none'
                         })

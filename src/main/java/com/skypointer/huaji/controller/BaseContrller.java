@@ -20,6 +20,9 @@ import org.springframework.web.bind.annotation.InitBinder;
 import java.io.IOException;
 import java.util.Date;
 
+/**
+ * 自动注入request,response,保证线程安全
+ */
 public class BaseContrller {
     @Autowired
     protected HttpServletRequest request;
