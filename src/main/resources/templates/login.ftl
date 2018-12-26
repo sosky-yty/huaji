@@ -48,7 +48,7 @@
                 </li>
                 <li>
                     <div class="input">
-                        <input type="text" v-model="userPwd" placeholder="密码">
+                        <input type="password" v-model="userPwd" placeholder="密码">
                     </div>
                 </li>
                 <li>
@@ -74,7 +74,7 @@
          new Vue({
         el: '#vue',
         data: {
-            autoLogin:false ,
+            autoLogin: false,
             logintxt:'登录',
             userName:'',
             userPwd:'',
@@ -99,7 +99,7 @@
                 })
             },
             rememberPass(){
-              if (this.logintxt === true) {
+              if (this.autoLogin === true) {
                   setStore('remember','true');
                   setStore('rusername',this.userName);
                   setStore('ruserpwd',this.userPwd);
@@ -126,25 +126,25 @@
                     return false;
                 }
                 var result =  captcha.getValidate();
-                if (!resule) {
-                    this.message("请先完成登录！");
+                if (!result) {
+                    this.message("请先完成验证！");
                     this.logintxt = '登录';
                     return false;
                 }
                 var params = {
-                    userNama:this.userNama,
+                    userName:this.userName,
                     userPwd:this.userPwd,
                     challenge: result.geetest_challenge,
                     validate: result.geetest_validate,
-                    seccode: result.geetest_seccode,
-                    statusKey: this.statusKey
-                }
+                    seccode: result.geetest_seccode
+                };
                 userLogin(params).then(res=>{
-                    if (res.result.state === 1){
-                        this.open("暂且算你登录成功了，后台接口还没写")
+                    console.log(res)
+                    if (res === '1'){
+                        this.message("暂且算你登录成功了，后台接口还没写")
                     }else{
                         this.logintxt = '登录';
-                        this.message(res.result.message);
+                        this.message("登录失败！！");
                         captcha.reset();
                         return false;
                     }
@@ -174,7 +174,7 @@
         mounted(){
          this.getRemember();
          this.init_geetest();
-         this.open("登录提示","测试账号： admin | admin")
+         this.open("登录提示","测试账号： sky | sky")
         },
         attached(){
             this.init_geetest();
