@@ -21,7 +21,7 @@
     <script src="${ContextPath!}/js/vue.js"></script>
     <script src="${ContextPath!}/js/untils/storage.js"></script>
     <script src="${ContextPath!}/js/untils/router.js"></script>
-    <script src="${ContextPath!}/gt/gt.js"></script>
+
     <#--异步通信库-->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
@@ -29,6 +29,8 @@
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
     <#--导入网络通信库-->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="${ContextPath!}/gt/gt.js"></script>
+
 </head>
 
 <body>
@@ -54,7 +56,7 @@
                         <p id="wait" style>正在加载验证码...</p>
                     </div>
                 </li>
-                <li style="text-align: right" class="pr"><el-checkbox class="auto-login" v-model="autoLogin">记住密码</el-checkbox>
+                <li style="text-align: right margin-right: 20px" class="pr"><el-checkbox class="auto-login" v-model="autoLogin">记住密码</el-checkbox>
                     <a href="register.ftl" class="register">注册滑稽账号</a>
                     <a style="padding: 1px 0 0 10px;" href="forget">忘记密码?</a>
                 </li>
@@ -151,11 +153,12 @@
             init_geetest(){
                 geetest().then(res => {
                     this.statusKey = res.statusKey;
+                    data = JSON.parse(res);
                     window.initGeetest({
-                        gt: res.gt,
-                        challenge: res.challenge,
-                        new_captcha: res.new_captcha,
-                        offline: !res.success,
+                        gt: data.gt,
+                        challenge: data.challenge,
+                        new_captcha: true,
+                        offline: !data.success,
                         product: 'popup',
                         width: '100%'
                     }, function (captchaObj) {
@@ -172,6 +175,9 @@
          this.getRemember();
          this.init_geetest();
          this.open("登录提示","测试账号： admin | admin")
+        },
+        attached(){
+            this.init_geetest();
         }
     });
 
